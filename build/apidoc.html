@@ -1,0 +1,943 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/eslint/espree"
+
+    >espree (v3.4.1)</a>
+</h1>
+<h4>An Esprima-compatible JavaScript parser built on Acorn</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.espree">module espree</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.espree.parse">
+            function <span class="apidocSignatureSpan">espree.</span>parse
+            <span class="apidocSignatureSpan">(code, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.espree.token_translator">
+            function <span class="apidocSignatureSpan">espree.</span>token_translator
+            <span class="apidocSignatureSpan">(acornTokTypes, code)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.espree.tokenize">
+            function <span class="apidocSignatureSpan">espree.</span>tokenize
+            <span class="apidocSignatureSpan">(code, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">espree.</span>Syntax</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">espree.</span>VisitorKeys</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">espree.</span>comment_attachment</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">espree.</span>token_translator.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">espree.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.espree.comment_attachment">module espree.comment_attachment</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.espree.comment_attachment.addComment">
+            function <span class="apidocSignatureSpan">espree.comment_attachment.</span>addComment
+            <span class="apidocSignatureSpan">(comment)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.espree.comment_attachment.processComment">
+            function <span class="apidocSignatureSpan">espree.comment_attachment.</span>processComment
+            <span class="apidocSignatureSpan">(node)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.espree.comment_attachment.reset">
+            function <span class="apidocSignatureSpan">espree.comment_attachment.</span>reset
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.espree.token_translator">module espree.token_translator</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.espree.token_translator.token_translator">
+            function <span class="apidocSignatureSpan">espree.</span>token_translator
+            <span class="apidocSignatureSpan">(acornTokTypes, code)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.espree.token_translator.prototype">module espree.token_translator.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.espree.token_translator.prototype.constructor">
+            function <span class="apidocSignatureSpan">espree.token_translator.prototype.</span>constructor
+            <span class="apidocSignatureSpan">(acornTokTypes, code)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.espree.token_translator.prototype.onToken">
+            function <span class="apidocSignatureSpan">espree.token_translator.prototype.</span>onToken
+            <span class="apidocSignatureSpan">(token, extra)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.espree.token_translator.prototype.translate">
+            function <span class="apidocSignatureSpan">espree.token_translator.prototype.</span>translate
+            <span class="apidocSignatureSpan">(token, extra)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.espree" id="apidoc.module.espree">module espree</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.espree.parse" id="apidoc.element.espree.parse">
+        function <span class="apidocSignatureSpan">espree.</span>parse
+        <span class="apidocSignatureSpan">(code, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parse(code, options) {
+    var program,
+        toString = String,
+        translator,
+        impliedStrict,
+        acornOptions = {
+            ecmaVersion: DEFAULT_ECMA_VERSION,
+            plugins: {
+                espree: true
+            }
+        };
+
+    lastToken = null;
+
+    if (typeof code !== &#x22;string&#x22; &#x26;&#x26; !(code instanceof String)) {
+        code = toString(code);
+    }
+
+    resetExtra();
+    commentAttachment.reset();
+
+    if (typeof options !== &#x22;undefined&#x22;) {
+        extra.range = (typeof options.range === &#x22;boolean&#x22;) &#x26;&#x26; options.range;
+        extra.loc = (typeof options.loc === &#x22;boolean&#x22;) &#x26;&#x26; options.loc;
+        extra.attachComment = (typeof options.attachComment === &#x22;boolean&#x22;) &#x26;&#x26; options.attachComment;
+
+        if (extra.loc &#x26;&#x26; options.source !== null &#x26;&#x26; options.source !== undefined) {
+            extra.source = toString(options.source);
+        }
+
+        if (typeof options.tokens === &#x22;boolean&#x22; &#x26;&#x26; options.tokens) {
+            extra.tokens = [];
+            translator = new TokenTranslator(tt, code);
+        }
+        if (typeof options.comment === &#x22;boolean&#x22; &#x26;&#x26; options.comment) {
+            extra.comment = true;
+            extra.comments = [];
+        }
+        if (typeof options.tolerant === &#x22;boolean&#x22; &#x26;&#x26; options.tolerant) {
+            extra.errors = [];
+        }
+        if (extra.attachComment) {
+            extra.range = true;
+            extra.comments = [];
+            commentAttachment.reset();
+        }
+
+        acornOptions.ecmaVersion = extra.ecmaVersion = normalizeEcmaVersion(options.ecmaVersion);
+
+        if (options.sourceType === &#x22;module&#x22;) {
+            extra.isModule = true;
+
+            // modules must be in 6 at least
+            if (acornOptions.ecmaVersion &#x3c; 6) {
+                acornOptions.ecmaVersion = 6;
+                extra.ecmaVersion = 6;
+            }
+
+            acornOptions.sourceType = &#x22;module&#x22;;
+        }
+
+        // apply parsing flags after sourceType to allow overriding
+        if (options.ecmaFeatures &#x26;&#x26; typeof options.ecmaFeatures === &#x22;object&#x22;) {
+            extra.ecmaFeatures = options.ecmaFeatures;
+            impliedStrict = extra.ecmaFeatures.impliedStrict;
+            extra.ecmaFeatures.impliedStrict = typeof impliedStrict === &#x22;boolean&#x22; &#x26;&#x26; impliedStrict;
+            if (options.ecmaFeatures.globalReturn) {
+                acornOptions.allowReturnOutsideFunction = true;
+            }
+        }
+
+
+        acornOptions.onToken = function(token) {
+            if (extra.tokens) {
+                translator.onToken(token, extra);
+            }
+            if (token.type !== tt.eof) {
+                lastToken = token;
+            }
+        };
+
+        if (extra.attachComment || extra.comment) {
+            acornOptions.onComment = function() {
+                var comment = convertAcornCommentToEsprimaComment.apply(this, arguments);
+                extra.comments.push(comment);
+
+                if (extra.attachComment) {
+                    commentAttachment.addComment(comment);
+                }
+            };
+        }
+
+        if (extra.range) {
+            acornOptions.ranges = true;
+        }
+
+        if (extra.loc) {
+            acornOptions.locations = true;
+        }
+
+        if (extra.ecmaFeatures.jsx) {
+            // Should process jsx plugin before espree plugin.
+            acornOptions.plugins = {
+                jsx: true,
+                espree: true
+            };
+        }
+    }
+
+    program = acorn.parse(code, acornOptions);
+    program.sourceType = extra.isModule ? &#x22;module&#x22; : &#x22;script&#x22;;
+
+    if (extra.comment || extra.attachComment) {
+        program.comments = extra.comments;
+    }
+
+    if (extra.tokens) {
+        program.tokens = extra.tokens;
+    }
+
+    /*
+     * Adjust opening and closing position of program to match Esprima.
+     * Acorn always starts programs at range 0 whereas Esprima starts at the
+     * first AST node&#x27;s start (the only real difference is when there&#x27;s leading
+     * whitespace or leading comments). Acorn also counts trailing whitespace
+     * as part of the program whereas Esprima only counts up to the last token. ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+And in your Node.js code:
+
+```javascript
+var espree = require(&#x22;espree&#x22;);
+
+var ast = espree.<span class="apidocCodeKeywordSpan">parse</span>(code);
+```
+
+There is a second argument to `parse()` that allows you to specify various options:
+
+```javascript
+var espree = require(&#x22;espree&#x22;);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.espree.token_translator" id="apidoc.element.espree.token_translator">
+        function <span class="apidocSignatureSpan">espree.</span>token_translator
+        <span class="apidocSignatureSpan">(acornTokTypes, code)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function TokenTranslator(acornTokTypes, code) {
+
+    // token types
+    this._acornTokTypes = acornTokTypes;
+
+    // token buffer for templates
+    this._tokens = [];
+
+    // track the last curly brace
+    this._curlyBrace = null;
+
+    // the source code
+    this._code = code;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.espree.tokenize" id="apidoc.element.espree.tokenize">
+        function <span class="apidocSignatureSpan">espree.</span>tokenize
+        <span class="apidocSignatureSpan">(code, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function tokenize(code, options) {
+    var toString,
+        tokens,
+        impliedStrict,
+        translator = new TokenTranslator(tt, code);
+
+    toString = String;
+    if (typeof code !== &#x22;string&#x22; &#x26;&#x26; !(code instanceof String)) {
+        code = toString(code);
+    }
+
+    lookahead = null;
+
+    // Options matching.
+    options = options || {};
+
+    var acornOptions = {
+        ecmaVersion: DEFAULT_ECMA_VERSION,
+        plugins: {
+            espree: true
+        }
+    };
+
+    resetExtra();
+
+    // Of course we collect tokens here.
+    options.tokens = true;
+    extra.tokens = [];
+
+    extra.range = (typeof options.range === &#x22;boolean&#x22;) &#x26;&#x26; options.range;
+    acornOptions.ranges = extra.range;
+
+    extra.loc = (typeof options.loc === &#x22;boolean&#x22;) &#x26;&#x26; options.loc;
+    acornOptions.locations = extra.loc;
+
+    extra.comment = typeof options.comment === &#x22;boolean&#x22; &#x26;&#x26; options.comment;
+
+    if (extra.comment) {
+        acornOptions.onComment = function() {
+            var comment = convertAcornCommentToEsprimaComment.apply(this, arguments);
+            extra.comments.push(comment);
+        };
+    }
+
+    extra.tolerant = typeof options.tolerant === &#x22;boolean&#x22; &#x26;&#x26; options.tolerant;
+
+    acornOptions.ecmaVersion = extra.ecmaVersion = normalizeEcmaVersion(options.ecmaVersion);
+
+    // apply parsing flags
+    if (options.ecmaFeatures &#x26;&#x26; typeof options.ecmaFeatures === &#x22;object&#x22;) {
+        extra.ecmaFeatures = options.ecmaFeatures;
+        impliedStrict = extra.ecmaFeatures.impliedStrict;
+        extra.ecmaFeatures.impliedStrict = typeof impliedStrict === &#x22;boolean&#x22; &#x26;&#x26; impliedStrict;
+    }
+
+    try {
+        var tokenizer = acorn.tokenizer(code, acornOptions);
+        while ((lookahead = tokenizer.getToken()).type !== tt.eof) {
+            translator.onToken(lookahead, extra);
+        }
+
+        // filterTokenLocation();
+        tokens = extra.tokens;
+
+        if (extra.comment) {
+            tokens.comments = extra.comments;
+        }
+        if (extra.tolerant) {
+            tokens.errors = extra.errors;
+        }
+    } catch (e) {
+        throw e;
+    }
+    return tokens;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.espree.comment_attachment" id="apidoc.module.espree.comment_attachment">module espree.comment_attachment</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.espree.comment_attachment.addComment" id="apidoc.element.espree.comment_attachment.addComment">
+        function <span class="apidocSignatureSpan">espree.comment_attachment.</span>addComment
+        <span class="apidocSignatureSpan">(comment)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addComment = function (comment) {
+    extra.trailingComments.push(comment);
+    extra.leadingComments.push(comment);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+if (extra.attachComment || extra.comment) {
+    acornOptions.onComment = function() {
+        var comment = convertAcornCommentToEsprimaComment.apply(this, arguments);
+        extra.comments.push(comment);
+
+        if (extra.attachComment) {
+            commentAttachment.<span class="apidocCodeKeywordSpan">addComment</span>(comment);
+        }
+    };
+}
+
+if (extra.range) {
+    acornOptions.ranges = true;
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.espree.comment_attachment.processComment" id="apidoc.element.espree.comment_attachment.processComment">
+        function <span class="apidocSignatureSpan">espree.comment_attachment.</span>processComment
+        <span class="apidocSignatureSpan">(node)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">processComment = function (node) {
+    var lastChild,
+        trailingComments,
+        i,
+        j;
+
+    if (node.type === astNodeTypes.Program) {
+        if (node.body.length &#x3e; 0) {
+            return;
+        }
+    }
+
+    if (extra.trailingComments.length &#x3e; 0) {
+
+<span class="apidocCodeCommentSpan">        /*
+         * If the first comment in trailingComments comes after the
+         * current node, then we&#x27;re good - all comments in the array will
+         * come after the node and so it&#x27;s safe to add then as official
+         * trailingComments.
+         */
+</span>        if (extra.trailingComments[0].range[0] &#x3e;= node.range[1]) {
+            trailingComments = extra.trailingComments;
+            extra.trailingComments = [];
+        } else {
+
+            /*
+             * Otherwise, if the first comment doesn&#x27;t come after the
+             * current node, that means we have a mix of leading and trailing
+             * comments in the array and that leadingComments contains the
+             * same items as trailingComments. Reset trailingComments to
+             * zero items and we&#x27;ll handle this by evaluating leadingComments
+             * later.
+             */
+            extra.trailingComments.length = 0;
+        }
+    } else {
+        if (extra.bottomRightStack.length &#x3e; 0 &#x26;&#x26;
+                extra.bottomRightStack[extra.bottomRightStack.length - 1].trailingComments &#x26;&#x26;
+                extra.bottomRightStack[extra.bottomRightStack.length - 1].trailingComments[0].range[0] &#x3e;= node.range[1]) {
+            trailingComments = extra.bottomRightStack[extra.bottomRightStack.length - 1].trailingComments;
+            delete extra.bottomRightStack[extra.bottomRightStack.length - 1].trailingComments;
+        }
+    }
+
+    // Eating the stack.
+    while (extra.bottomRightStack.length &#x3e; 0 &#x26;&#x26; extra.bottomRightStack[extra.bottomRightStack.length - 1].range[0] &#x3e;= node.range
+[0]) {
+        lastChild = extra.bottomRightStack.pop();
+    }
+
+    if (lastChild) {
+        if (lastChild.leadingComments) {
+            if (lastChild.leadingComments[lastChild.leadingComments.length - 1].range[1] &#x3c;= node.range[0]) {
+                node.leadingComments = lastChild.leadingComments;
+                delete lastChild.leadingComments;
+            } else {
+                // A leading comment for an anonymous class had been stolen by its first MethodDefinition,
+                // so this takes back the leading comment.
+                // See Also: https://github.com/eslint/espree/issues/158
+                for (i = lastChild.leadingComments.length - 2; i &#x3e;= 0; --i) {
+                    if (lastChild.leadingComments[i].range[1] &#x3c;= node.range[0]) {
+                        node.leadingComments = lastChild.leadingComments.splice(0, i + 1);
+                        break;
+                    }
+                }
+            }
+        }
+    } else if (extra.leadingComments.length &#x3e; 0) {
+        if (extra.leadingComments[extra.leadingComments.length - 1].range[1] &#x3c;= node.range[0]) {
+            if (extra.previousNode) {
+                for (j = 0; j &#x3c; extra.leadingComments.length; j++) {
+                    if (extra.leadingComments[j].end &#x3c; extra.previousNode.end) {
+                        extra.leadingComments.splice(j, 1);
+                        j--;
+                    }
+                }
+            }
+            if (extra.leadingComments.length &#x3e; 0) {
+                node.leadingComments = extra.leadingComments;
+                extra.leadingComments = [];
+            }
+        } else {
+
+            // https://github.com/eslint/espree/issues/2
+
+            /*
+             * In special cases, such as return (without a value) and
+             * debugger, all comments will end up as leadingComments and
+             * will otherwise be eliminated. This extra step runs when the
+             * bottomRightStack is empty and there are comments left
+             * in leadingComments.
+             *
+             * This loop figures out the stopping point between the actual
+             * leading and trailing comments by finding the location of the
+             * first comment that comes after the given node. ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+// Acorn uses undefined instead of null, which affects serialization
+if (result.type === &#x22;Literal&#x22; &#x26;&#x26; result.value === undefined) {
+    result.value = null;
+}
+
+if (extra.attachComment) {
+    commentAttachment.<span class="apidocCodeKeywordSpan">processComment</span>(result);
+}
+
+if (result.type.indexOf(&#x22;Function&#x22;) &#x3e; -1 &#x26;&#x26; !result.generator) {
+    result.generator = false;
+}
+
+return result;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.espree.comment_attachment.reset" id="apidoc.element.espree.comment_attachment.reset">
+        function <span class="apidocSignatureSpan">espree.comment_attachment.</span>reset
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reset = function () {
+    extra.trailingComments = [];
+    extra.leadingComments = [];
+    extra.bottomRightStack = [];
+    extra.previousNode = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    lastToken = null;
+
+    if (typeof code !== &#x22;string&#x22; &#x26;&#x26; !(code instanceof String)) {
+code = toString(code);
+    }
+
+    resetExtra();
+    commentAttachment.<span class="apidocCodeKeywordSpan">reset</span>();
+
+    if (typeof options !== &#x22;undefined&#x22;) {
+extra.range = (typeof options.range === &#x22;boolean&#x22;) &#x26;&#x26; options.range;
+extra.loc = (typeof options.loc === &#x22;boolean&#x22;) &#x26;&#x26; options.loc;
+extra.attachComment = (typeof options.attachComment === &#x22;boolean&#x22;) &#x26;&#x26; options.attachComment;
+
+if (extra.loc &#x26;&#x26; options.source !== null &#x26;&#x26; options.source !== undefined) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.espree.token_translator" id="apidoc.module.espree.token_translator">module espree.token_translator</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.espree.token_translator.token_translator" id="apidoc.element.espree.token_translator.token_translator">
+        function <span class="apidocSignatureSpan">espree.</span>token_translator
+        <span class="apidocSignatureSpan">(acornTokTypes, code)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function TokenTranslator(acornTokTypes, code) {
+
+    // token types
+    this._acornTokTypes = acornTokTypes;
+
+    // token buffer for templates
+    this._tokens = [];
+
+    // track the last curly brace
+    this._curlyBrace = null;
+
+    // the source code
+    this._code = code;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.espree.token_translator.prototype" id="apidoc.module.espree.token_translator.prototype">module espree.token_translator.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.espree.token_translator.prototype.constructor" id="apidoc.element.espree.token_translator.prototype.constructor">
+        function <span class="apidocSignatureSpan">espree.token_translator.prototype.</span>constructor
+        <span class="apidocSignatureSpan">(acornTokTypes, code)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function TokenTranslator(acornTokTypes, code) {
+
+    // token types
+    this._acornTokTypes = acornTokTypes;
+
+    // token buffer for templates
+    this._tokens = [];
+
+    // track the last curly brace
+    this._curlyBrace = null;
+
+    // the source code
+    this._code = code;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.espree.token_translator.prototype.onToken" id="apidoc.element.espree.token_translator.prototype.onToken">
+        function <span class="apidocSignatureSpan">espree.token_translator.prototype.</span>onToken
+        <span class="apidocSignatureSpan">(token, extra)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onToken = function (token, extra) {
+
+    var that = this,
+        tt = this._acornTokTypes,
+        tokens = extra.tokens,
+        templateTokens = this._tokens;
+
+<span class="apidocCodeCommentSpan">    /**
+     * Flushes the buffered template tokens and resets the template
+     * tracking.
+     * @returns {void}
+     * @private
+     */
+</span>    function translateTemplateTokens() {
+        tokens.push(convertTemplatePart(that._tokens, that._code));
+        that._tokens = [];
+    }
+
+    if (token.type === tt.eof) {
+
+        // might be one last curlyBrace
+        if (this._curlyBrace) {
+            tokens.push(this.translate(this._curlyBrace, extra));
+        }
+
+        return;
+    }
+
+    if (token.type === tt.backQuote) {
+
+        // if there&#x27;s already a curly, it&#x27;s not part of the template
+        if (this._curlyBrace) {
+            tokens.push(this.translate(this._curlyBrace, extra));
+            this._curlyBrace = null;
+        }
+
+        templateTokens.push(token);
+
+        // it&#x27;s the end
+        if (templateTokens.length &#x3e; 1) {
+            translateTemplateTokens();
+        }
+
+        return;
+    } else if (token.type === tt.dollarBraceL) {
+        templateTokens.push(token);
+        translateTemplateTokens();
+        return;
+    } else if (token.type === tt.braceR) {
+
+        // if there&#x27;s already a curly, it&#x27;s not part of the template
+        if (this._curlyBrace) {
+            tokens.push(this.translate(this._curlyBrace, extra));
+        }
+
+        // store new curly for later
+        this._curlyBrace = token;
+        return;
+    } else if (token.type === tt.template) {
+        if (this._curlyBrace) {
+            templateTokens.push(this._curlyBrace);
+            this._curlyBrace = null;
+        }
+
+        templateTokens.push(token);
+        return;
+    }
+
+    if (this._curlyBrace) {
+        tokens.push(this.translate(this._curlyBrace, extra));
+        this._curlyBrace = null;
+    }
+
+    tokens.push(this.translate(token, extra));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+impliedStrict = extra.ecmaFeatures.impliedStrict;
+extra.ecmaFeatures.impliedStrict = typeof impliedStrict === &#x22;boolean&#x22; &#x26;&#x26; impliedStrict;
+    }
+
+    try {
+var tokenizer = acorn.tokenizer(code, acornOptions);
+while ((lookahead = tokenizer.getToken()).type !== tt.eof) {
+    translator.<span class="apidocCodeKeywordSpan">onToken</span>(lookahead, extra);
+}
+
+// filterTokenLocation();
+tokens = extra.tokens;
+
+if (extra.comment) {
+    tokens.comments = extra.comments;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.espree.token_translator.prototype.translate" id="apidoc.element.espree.token_translator.prototype.translate">
+        function <span class="apidocSignatureSpan">espree.token_translator.prototype.</span>translate
+        <span class="apidocSignatureSpan">(token, extra)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">translate = function (token, extra) {
+
+    var type = token.type,
+        tt = this._acornTokTypes;
+
+    if (type === tt.name) {
+        token.type = Token.Identifier;
+
+        // TODO: See if this is an Acorn bug
+        if (token.value === &#x22;static&#x22;) {
+            token.type = Token.Keyword;
+        }
+
+        if (extra.ecmaVersion &#x3e; 5 &#x26;&#x26; (token.value === &#x22;yield&#x22; || token.value === &#x22;let&#x22;)) {
+            token.type = Token.Keyword;
+        }
+
+    } else if (type === tt.semi || type === tt.comma ||
+             type === tt.parenL || type === tt.parenR ||
+             type === tt.braceL || type === tt.braceR ||
+             type === tt.dot || type === tt.bracketL ||
+             type === tt.colon || type === tt.question ||
+             type === tt.bracketR || type === tt.ellipsis ||
+             type === tt.arrow || type === tt.jsxTagStart ||
+             type === tt.incDec || type === tt.starstar ||
+             type === tt.jsxTagEnd || type === tt.prefix ||
+             (type.binop &#x26;&#x26; !type.keyword) ||
+             type.isAssign) {
+
+        token.type = Token.Punctuator;
+        token.value = this._code.slice(token.start, token.end);
+    } else if (type === tt.jsxName) {
+        token.type = Token.JSXIdentifier;
+    } else if (type.label === &#x22;jsxText&#x22; || type === tt.jsxAttrValueToken) {
+        token.type = Token.JSXText;
+    } else if (type.keyword) {
+        if (type.keyword === &#x22;true&#x22; || type.keyword === &#x22;false&#x22;) {
+            token.type = Token.Boolean;
+        } else if (type.keyword === &#x22;null&#x22;) {
+            token.type = Token.Null;
+        } else {
+            token.type = Token.Keyword;
+        }
+    } else if (type === tt.num) {
+        token.type = Token.Numeric;
+        token.value = this._code.slice(token.start, token.end);
+    } else if (type === tt.string) {
+
+        if (extra.jsxAttrValueToken) {
+            extra.jsxAttrValueToken = false;
+            token.type = Token.JSXText;
+        } else {
+            token.type = Token.String;
+        }
+
+        token.value = this._code.slice(token.start, token.end);
+    } else if (type === tt.regexp) {
+        token.type = Token.RegularExpression;
+        var value = token.value;
+        token.regex = {
+            flags: value.flags,
+            pattern: value.pattern
+        };
+        token.value = &#x22;/&#x22; + value.pattern + &#x22;/&#x22; + value.flags;
+    }
+
+    return token;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    that._tokens = [];
+}
+
+if (token.type === tt.eof) {
+
+    // might be one last curlyBrace
+    if (this._curlyBrace) {
+        tokens.push(this.<span class="apidocCodeKeywordSpan">translate</span>(this._curlyBrace, extra));
+    }
+
+    return;
+}
+
+if (token.type === tt.backQuote) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
